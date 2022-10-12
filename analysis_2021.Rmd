@@ -36,7 +36,7 @@ I was especially excited about the commuting data: What did the pandemic do to p
 # Mode share over time
 ACS mode share data is available all the way back to 2010. In [previous posts on the Madison Bikes blog](https://www.madisonbikes.org/2020/09/biking-numbers-in-madison-not-so-great/) I had already looked at these time series data -- and frankly, it was not that exciting: By and large the percentages of different modes of getting to worked stayed the same. Biking didn't grow but neither shrunk. It seemed highly likely that the pandemic would have changed things up. And it did: 
 
-```{r, layout="l-page", fig.width=6, fig.asp = 0.618}
+```{r, layout="l-page", fig.width=8, fig.asp = 0.618}
 library(tmap)
 library(tidycensus)
 library(tidyverse)
@@ -104,7 +104,7 @@ msn_mode_share |>
   hrbrthemes::theme_ipsum() +
   scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021), minor_breaks = NULL, limits = c(2010, 2022.5)) +
   ylab("estimate (%)") +
-  labs(title = "Rate of working home almost quintupled between 2019 and 2021",
+  labs(title = "Working from home almost quintupled\nbetween 2019 and 2021",
        subtitle ="City of Madison commute mode share, 2010-2021",
        caption = "American Community Survey 1-year estimates, Table S0801\nVisualization: @HaraldKliems") +
     ggrepel::geom_text_repel(data = msn_mode_share_2021 |> filter(gender == "total"), aes(label = paste0(mode_readable, " ", estimate, "%")), nudge_x = 1) +
