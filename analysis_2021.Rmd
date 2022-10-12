@@ -27,7 +27,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 One of the high holidays for census data nerds is ACSmas: The annual release of 1-year estimates from the American Community Survey. Last year's ACSmas was cancelled because of the pandemic, but this September we finally got our fix of data for 2021. 
 
+```{=html}
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">ACSmas is cancelled this year, everything sucks <a href="https://t.co/rGsjpg0WE7">https://t.co/rGsjpg0WE7</a></p>&mdash; dadbode miller (@bikepedantic) <a href="https://twitter.com/bikepedantic/status/1420836792262090753?ref_src=twsrc%5Etfw">July 29, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+```
 
 I was especially excited about the commuting data: What did the pandemic do to people's trips to work? How much of a shift to working from home would we see? And was the data quality actually going to be good enough to draw any firm conclusions? What follows is an in-depth look at the ACS commuting data for the City of Madison. 
 
