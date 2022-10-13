@@ -443,7 +443,7 @@ Let's go through mode by mode:
 - The next category lumps together cabs, motorcycles, bicycles, and other means of transportation to work. Like with walking, there are no significant differences between the groups.
 - The same is true for transit: All the error bars overlap, i.e. no significant differences.
 
-# There' more than ACS: Bike count nalysis webinar
+# There's more than ACS: Bike count analysis webinar
 
 ![Webinar](bike-count-webinar.jpg)
 
