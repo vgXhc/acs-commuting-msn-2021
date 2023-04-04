@@ -6,7 +6,7 @@ author:
   - name: Harald Kliems 
     orcid_id: 0000-0003-2542-0047
     url: https://haraldkliems.netlify.app/
-date: "`r Sys.Date()`"
+date: 2022-10-12
 repository_url: https://github.com/vgXhc/ACS_1y_Madison/
 compare_updates_url:
 creative_commons: CC BY-SA
@@ -106,7 +106,7 @@ msn_mode_share |>
   ylab("estimate (%)") +
   labs(title = "Working from home almost quintupled\nbetween 2019 and 2021",
        subtitle ="City of Madison commute mode share, 2010-2021",
-       caption = "American Community Survey 1-year estimates, Table S0801\nVisualization: @HaraldKliems") +
+       caption = "American Community Survey 1-year estimates, Table S0801\nVisualization: Harald Kliems") +
     ggrepel::geom_text_repel(data = msn_mode_share_2021 |> filter(gender == "total"), aes(label = paste0(mode_readable, " ", estimate, "%")), nudge_x = 1) +
   theme(legend.position = "none")
 ```
@@ -136,7 +136,8 @@ msn_mode_share |>
   xlab(element_blank()) +
   labs(title = "Change in commute mode share",
        subtitle ="City of Madison, 2019-2021. Margins of error not shown",
-       caption = "American Community Survey 1-year estimates, Table S0801\nVisualization: @HaraldKliems") 
+       caption = "American Community Survey 1-year estimates, Table S0801\nVisualization: Harald
+       Kliems") 
 ```
 
 For transportation planning, it's important to not only look at percentages but also at absolute numbers: Fewer people driving to work means less peak hour congestion (which is not [necessarily a good thing](https://ssti.us/2021/03/16/traffic-congestion-vanished-and-more-people-died-on-the-roads/)); fewer transit riders means lower fare revenues; and fewer bike commuters may lead to less support of biking infrastructure. And a large number of people working from home may be a problem for commercial real estate or fewer customers for downtown restaurants. 
@@ -191,7 +192,7 @@ commute_numbers_msn |>
   xlab(element_blank()) +
   labs(title = "Change in number of commuters, 2019-2021",
        subtitle ="City of Madison. Statistically insignifant changes greyed out",
-       caption = "American Community Survey 1-year estimates, Table C08006\nVisualization: @HaraldKliems") +
+       caption = "American Community Survey 1-year estimates, Table C08006\nVisualization: HaraldKliems") +
   gghighlight::gghighlight(abs(estimate_2021-estimate_2019) > moe_diff, use_direct_label = F)
 ```
 
@@ -249,7 +250,7 @@ msn_counts |>
   theme(legend.position = "none",   panel.grid.major.x = element_blank()) +
   labs(title = "Transit commutes were the big loser",
        subtitle ="City of Madison, working from home excluded",
-       caption = "American Community Survey 1-year estimates, Table B08006\nVisualization: @HaraldKliems")
+       caption = "American Community Survey 1-year estimates, Table B08006\nVisualization: Harald Kliems")
 ```
 
 This is the same data in table form.
@@ -287,9 +288,9 @@ Calculating the margins of error for these estimates is complex and I have not d
 # Mode share by gender
 
 Did commuting trends in Madison differ by gender?
-Especially for biking, research has shown that in the US women are  underrepresented in bike commuting, take fewer trips on bike share bikes, and generally have different travel patterns compared to men.[@hosford2019; @ravensbergen2022] In the 2021 data for Madison, we do not see these differences.
+Especially for biking, research has shown that in the US women are  underrepresented in bike commuting, take fewer trips on bike share bikes, and generally have different travel patterns compared to men. [@hosford2019; @ravensbergen2022] In the 2021 data for Madison, we do not see these differences.
 
-Looking only at the estimates, it may appear that for bike commuting there is indeed a gender difference: `r msn_mode_share |> filter(gender == "male" & mode_readable == "Bike" & year == 2021) |> pull()`% of men rode their bike to work whereas only `r msn_mode_share |> filter(gender == "female" & mode_readable == "Bike" & year == 2021) |> pull()`% of women did so. But when we look at the error bars around the estimates, we see that for all modes they overlap between the two genders and therefore the differences we see in the data may well be by chance.
+Looking only at the estimates, it may appear that for bike commuting there is indeed a gender difference: `r msn_mode_share |> filter(gender == "male" & mode_readable == "Bike" & year == 2021) |> pull(estimate)`% of men rode their bike to work whereas only `r msn_mode_share |> filter(gender == "female" & mode_readable == "Bike" & year == 2021) |> pull(estimate)`% of women did so. But when we look at the error bars around the estimates, we see that for all modes they overlap between the two genders and therefore the differences we see in the data may well be by chance.
 
 ```{r eval=FALSE, echo=FALSE, layout="l-page"}
 # faceted plot by gender
@@ -305,7 +306,7 @@ msn_mode_share |>
   ylab("estimate (%)") +
   labs(title = "How people get to work in Madison does not differ by gender",
        subtitle ="City of Madison commute mode share, 2010-2021",
-       caption = "American Community Survey 1-year estimates, Table S0801\nVisualization: @HaraldKliems") +
+       caption = "American Community Survey 1-year estimates, Table S0801\nVisualization: Harald Kliems") +
   geom_text(data = msn_mode_share_2021, aes(label = paste0(mode_readable, " ", estimate, "%")), nudge_x = 1) +
   theme(legend.position = "none") +
   facet_wrap(~ fct_relevel(gender, "total", "female", "male"))
@@ -330,7 +331,7 @@ msn_mode_share_2021 |>
   xlab(element_blank()) +
   labs(title = "How people get to work in Madison\ndoes not differ by gender",
        subtitle = "2021 estimates and 90% margin of error",
-       caption = "American Community Survey 1-year estimates, Table S0801\nVisualization: @HaraldKliems") +
+       caption = "American Community Survey 1-year estimates, Table S0801\nVisualization: Harald Kliems") +
    annotate(
     geom = "curve", x = "Transit", y = 15, xend = "Bike", yend = 3, 
     curvature = -.3, arrow = arrow(length = unit(2, "mm"))
@@ -407,7 +408,7 @@ p <- commute_by_race_msn |>
   xlab(element_blank())+
 labs(title = "Madison commute mode share by race/ethnicity",
        subtitle = "2021 estimates and 90% margin of error",
-       caption = "American Community Survey 1-year estimates, Tables B08105A-I\nVisualization: @HaraldKliems")
+       caption = "American Community Survey 1-year estimates, Tables B08105A-I\nVisualization: Harald Kliems")
 
 p+
   #drive alone
